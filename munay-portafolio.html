@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muñay Te&J SAC | Portafolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#2AA9E0;
+    --blue-dark:#1B8FC4;
+    --green:#8DC63F;
+    --green-dark:#5C9A24;
+    --pink:#E6007E;
+    --purple:#5B2A82;
+    --purple-dark:#41205F;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Poppins',sans-serif;color:#0b3550;line-height:1.6;background:#f4fbff;}
+  h1,h2,h3{font-weight:800;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1150px;margin:0 auto;padding:0 24px;}
+
+  header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.08);}
+  .navwrap{display:flex;align-items:center;justify-content:space-between;padding:10px 24px;max-width:1150px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-logo{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;box-shadow:0 0 0 2px var(--green);}
+  .brand-logo img{width:100%;height:100%;object-fit:cover;}
+  .brand-name{font-family:'Dancing Script',cursive;font-size:26px;color:var(--pink);}
+  nav ul{display:flex;gap:24px;list-style:none;align-items:center;}
+  nav a{font-weight:600;font-size:14px;color:#0b3550;padding:6px 2px;border-bottom:2px solid transparent;transition:.2s;cursor:pointer;}
+  nav a:hover{border-color:var(--green);color:var(--blue-dark);}
+  .nav-cta{background:var(--green);color:#fff !important;padding:9px 18px !important;border-radius:30px;border:none;}
+  .nav-cta:hover{filter:brightness(1.08);border-color:transparent !important;}
+  .navtoggle{display:none;font-size:26px;background:none;border:none;cursor:pointer;color:var(--blue-dark);}
+
+  .stripe-section{position:relative;overflow:hidden;}
+  .stripe{position:absolute;top:0;right:0;height:100%;width:34%;background:var(--green);
+    clip-path:polygon(45% 0, 100% 0, 100% 100%, 15% 100%);}
+
+  .hero{background:linear-gradient(180deg,var(--blue),var(--blue-dark));color:#fff;padding:70px 0 0;position:relative;}
+  .hero .container{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center;padding-bottom:50px;}
+  .logo-badge{width:230px;height:230px;border-radius:50%;overflow:hidden;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,.25);border:6px solid rgba(255,255,255,.5);}
+  .logo-badge img{width:100%;height:100%;object-fit:cover;}
+  .hero-text h1{font-size:22px;line-height:1.5;font-weight:600;}
+  .hero-text h1 b{font-weight:800;}
+  .hero-tagline{margin-top:14px;font-size:15px;opacity:.9;}
+  .hero-cta{display:inline-block;margin-top:22px;background:var(--pink);color:#fff;padding:12px 26px;border-radius:30px;font-weight:700;font-size:14px;box-shadow:0 8px 20px rgba(230,0,124,.35);border:none;cursor:pointer;}
+  .hero-cta:hover{filter:brightness(1.07);}
+
+  .fruit-strip{width:100%;height:70px;overflow:hidden;position:relative;z-index:2;object-position:center center;}
+  .fruit-strip img{display:block;width:100%;height:100%;margin:0 auto;object-fit:cover;object-position:center center;}
+
+  .mv{background:var(--blue);color:#fff;padding:60px 0;position:relative;}
+  .mv .container{display:grid;grid-template-columns:1fr 1fr;gap:40px;position:relative;z-index:2;}
+  .mv-card{display:flex;gap:18px;align-items:flex-start;}
+  .mv-icon{width:64px;height:64px;flex:none;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.9);}
+  .mv-icon img{width:100%;height:100%;object-fit:cover;}
+  .mv-card h3{font-family:'Dancing Script',cursive;font-size:26px;margin-bottom:8px;}
+  .mv-card p{font-size:14.5px;opacity:.95;}
+
+  .cat{padding:60px 0;}
+  .cat-header{display:flex;align-items:center;gap:14px;margin-bottom:34px;}
+  .cat-bar{width:10px;height:34px;border-radius:4px;}
+  .cat h2{font-size:26px;letter-spacing:1px;text-transform:uppercase;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;}
+  .card{background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(20,80,120,.08);padding:20px;display:flex;gap:18px;border-left:6px solid var(--blue);}
+  .card .icon{width:84px;flex:none;border-radius:10px;overflow:hidden;background:#f2f2f2;}
+  .card .icon img{width:100%;height:100%;object-fit:cover;}
+  .card h4{font-size:15.5px;margin-bottom:6px;color:var(--blue-dark);}
+  .card p{font-size:13.5px;color:#33586e;}
+
+  /* FUNGICIDAS - celeste */
+  .cat.fungicidas{background:#e8f7ff;}
+  .cat.fungicidas .card{border-left-color:var(--blue);}
+  .cat.fungicidas h2{color:var(--blue-dark);}
+
+  /* INSECTICIDAS - violeta */
+  .cat.insecticidas{background:#f3edf9;}
+  .cat.insecticidas .card{border-left-color:var(--purple);}
+  .cat.insecticidas .card h4{color:var(--purple-dark);}
+  .cat.insecticidas h2{color:var(--purple);}
+
+  /* ESPECIALES - verde */
+  .cat.especiales{background:#eef8e5;}
+  .cat.especiales .card{border-left-color:var(--green-dark);}
+  .cat.especiales .card h4{color:var(--green-dark);}
+  .cat.especiales h2{color:var(--green-dark);}
+
+  footer{background:var(--blue-dark);color:#fff;padding:50px 0 0;position:relative;overflow:hidden;}
+  .footer-top{text-align:center;padding-bottom:30px;}
+  .footer-top h2{font-family:'Dancing Script',cursive;font-size:34px;color:#fff;}
+  .contact-info{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:16px;font-size:14.5px;}
+  .contact-info span{display:flex;align-items:center;gap:8px;}
+  .footer-fruit{width:100%;height:60px;overflow:hidden;}
+  .footer-fruit img{width:100%;height:100%;object-fit:cover;}
+  .footer-bottom{text-align:center;padding:18px 0;font-weight:800;font-size:18px;color:var(--pink);background:#0f5a80;}
+  .footer-bottom span{color:#fff;font-weight:400;font-size:14px;margin-left:10px;}
+
+  .modal-overlay{position:fixed;inset:0;background:rgba(11,53,80,.55);backdrop-filter:blur(4px);z-index:999;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s ease;}
+  .modal-overlay.open{opacity:1;pointer-events:all;}
+  .modal{background:#fff;border-radius:20px;width:100%;max-width:520px;box-shadow:0 24px 60px rgba(0,0,0,.22);transform:translateY(30px) scale(.97);transition:transform .28s ease, opacity .28s ease;opacity:0;overflow:hidden;max-height:90vh;overflow-y:auto;}
+  .modal-overlay.open .modal{transform:translateY(0) scale(1);opacity:1;}
+  .modal-header{background:linear-gradient(135deg,var(--blue-dark),var(--blue));color:#fff;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;}
+  .modal-header h2{font-family:'Dancing Script',cursive;font-size:30px;line-height:1;}
+  .modal-header p{font-size:13px;opacity:.85;margin-top:2px;}
+  .modal-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;flex:none;}
+  .modal-close:hover{background:rgba(255,255,255,.35);}
+  .modal-body{padding:26px;}
+  .contact-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;}
+  .contact-badges span{background:#eaf8ff;color:var(--blue-dark);padding:6px 12px;border-radius:20px;font-size:13px;display:flex;align-items:center;gap:6px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+  .form-group label{font-size:12.5px;font-weight:600;color:#33586e;}
+  .form-group input,.form-group textarea,.form-group select{border:1.5px solid #d0e8f5;border-radius:10px;padding:10px 13px;font-family:'Poppins',sans-serif;font-size:13.5px;color:#0b3550;outline:none;transition:border-color .2s,box-shadow .2s;background:#fff;appearance:none;-webkit-appearance:none;}
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(42,169,224,.15);}
+  .form-group textarea{resize:vertical;min-height:90px;}
+  .btn-send{width:100%;padding:13px;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;border:none;border-radius:12px;font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;cursor:pointer;transition:filter .2s,transform .15s;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px;}
+  .btn-send:hover{filter:brightness(1.06);transform:translateY(-1px);}
+  .btn-send:active{transform:translateY(0);}
+  .form-note{font-size:11.5px;color:#7591a3;margin-top:10px;text-align:center;}
+
+  .fab-contact{position:fixed;bottom:28px;right:28px;z-index:900;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;border:none;padding:14px 22px;border-radius:50px;font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;cursor:pointer;box-shadow:0 6px 24px rgba(141,198,63,.45);display:flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s;}
+  .fab-contact:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(141,198,63,.55);}
+
+  @media(max-width:850px){
+    .hero .container{grid-template-columns:1fr;text-align:center;}
+    .mv .container{grid-template-columns:1fr;}
+    .stripe{width:0;}
+    nav ul{position:fixed;top:64px;left:0;right:0;background:#fff;flex-direction:column;padding:18px;gap:10px;box-shadow:0 8px 12px rgba(0,0,0,.08);display:none;}
+    nav ul.open{display:flex;}
+    .navtoggle{display:block;}
+    .form-row{grid-template-columns:1fr;}
+    .card{flex-direction:column;}
+    .card .icon{width:100%;height:180px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navwrap">
+
+    <div class="brand">
+      <div class="brand-logo"><img src="b/Logo.png" alt="Logo Munay"></div>
+      <div class="brand-name">Munay Te&J SAC</div>
+    </div>
+    <button class="navtoggle" id="navToggle">☰</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#mision-vision">Misión y Visión</a></li>
+        <li><a href="#fungicidas">Fungicidas</a></li>
+        <li><a href="#insecticidas">Insecticidas</a></li>
+        <li><a href="#especiales">Especiales</a></li>
+        <li><a class="nav-cta" id="navContacto">Contáctanos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero stripe-section" id="inicio">
+  <div class="stripe"></div>
+  <div class="container">
+    <div class="logo-badge"><img src="b/Logo.png" alt="Munay Te&J SAC"></div>
+    <div class="hero-text">
+      <h1><b>Munay Te&J SAC</b> </h1>
+      <p class="hero-tagline">Es una compañía peruana, dedicada a generar soluciones integrales para el manejo agrícola de cultivos de exportación y convencionales. </p>
+      <p class="hero-tagline">Nos dedicamos a la comercialización y soporte técnico en el sector agrícola.</p>
+      <p class="hero-tagline">Tecnología, asesoría especializada y prácticas responsables para el campo peruano.</p>
+      <button class="hero-cta" id="heroContacto">Solicitar información</button>
+    </div>
+  </div>
+  <div class="fruit-strip"><img src="a/strip_top.jpg" alt="Cultivos"></div>
+</section>
+
+<section class="mv stripe-section" id="mision-vision">
+  <div class="stripe"></div>
+  <div class="container">
+    <div class="mv-card">
+      <div class="mv-icon"><img src="a/icon_mision.jpg" alt="Misión"></div>
+      <div>
+        <h3>Misión</h3>
+        <p class="hero-tagline">Brindar soluciones integrales e innovadoras para el manejo agrícola de cultivos de exportación y convencionales, contribuyendo a la sostenibilidad, productividad y competitividad del sector. Nos enfocamos en ofrecer tecnologías, asesoría especializada y prácticas responsables que fortalezcan la calidad de los productos y el bienestar de nuestros clientes.</p>
+      </div>
+    </div>
+    <div class="mv-card">
+      <div class="mv-icon"><img src="a/icon_vision.jpg" alt="Visión"></div>
+      <div>
+        <h3>Visión</h3>
+        <p class="hero-tagline">Ser la compañía líder a nivel nacional en soluciones agrícolas sostenibles, reconocida por su innovación, compromiso ambiental y aporte al desarrollo del agrario, con proyección hacia mercados internacionales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat fungicidas" id="fungicidas">
+  <div class="container">
+    <div class="cat-header">
+      <div class="cat-bar" style="background:var(--blue);"></div>
+      <h2>Fungicidas</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="icon"><img src="b/fung_1.jpg" alt="Power Green"></div>
+        <div>
+          <h4>POWER GREEN con</h4>
+          <p>Sus ingredientes activos son los microorganismos benéficos reactivados: T. asperellum, T. harzianum, T. viride y B. subtilis. Aplicado a nivel foliar o radicular (goteo, aspersión o drench), brinda protección a la planta contra diversos fitopatógenos.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/fung_2.jpg" alt="Bio Harz"></div>
+        <div>
+          <h4>BIO HARZ con</h4>
+          <p>Su poderoso ingrediente activo es el microorganismo benéfico reactivado T. harzianum. Aplicado a nivel foliar o radicular (goteo, aspersión o drench), brinda protección a la planta contra diversos fitopatógenos.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/fung_3.jpg" alt="Sub Tripo UFC"></div>
+        <div>
+          <h4>SUB TRIPO UFC</h4>
+          <p>Fungicida y bioestimulante en polvo a base de endosporas liberasas de la cepa nativa Bacillus subtilis. Aplicado a nivel foliar o radicular, brinda protección contra diversos fitopatógenos saprofitos.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/fung_4.jpeg" alt="Bio Amyl UFC"></div>
+        <div>
+          <h4>BIO AMYL ufc</h4>
+          <p>Biofungicida y bioestimulante de endosporas de cepa nativa B. amyloquefaciens, actúa contra hongos fitopatógenos inhibiendo su germinación y crecimiento mediante secreción de iturinas, fengicinas y surfactinas. Coloniza la rizosfera, induce resistencia sistémica, descompone materia orgánica, produce enzimas y fitohormonas, y facilita la absorción de nutrientes como el fósforo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat insecticidas" id="insecticidas">
+  <div class="container">
+    <div class="cat-header">
+      <div class="cat-bar" style="background:var(--purple);"></div>
+      <h2>Insecticidas</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="icon"><img src="b/insect_1.jpg" alt="Bio Met"></div>
+        <div>
+          <h4>BIO MET con</h4>
+          <p>Potente bioinsecticida orgánico a base de hongo entomopatógeno reactivado Metarhizium anisopliae, para el control efectivo de una amplia gama de insectos plaga en variedad de cultivos agrícolas.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/insect_2.jpg" alt="Power Nem"></div>
+        <div>
+          <h4>POWER NEM con</h4>
+          <p>Sus ingredientes activos son los hongos nematófagos reactivados P. lilacinum, P. chlamydosporia y T. harzianum. Aplicado a nivel radicular, protege contra fitonemátodos, promoviendo el crecimiento vegetal y la salud del suelo.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/insect_3.jpg" alt="Bio Thurk"></div>
+        <div>
+          <h4>BIO THURK CON</h4>
+          <p>Insecticida biológico en polvo mojable (WP) que contiene esporas y cristales de Bacillus thuringiensis subsp. Kurstaki.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/insect_4.jpg" alt="Bio Bass"></div>
+        <div>
+          <h4>BIO BASS con</h4>
+          <p>Potente bioinsecticida orgánico a base de hongo entomopatógeno reactivado Beauveria bassiana, para el control efectivo de una amplia gama de insectos plaga en variedad de cultivos agrícolas.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/insect_5.jpg" alt="Power Bug"></div>
+        <div>
+          <h4>POWER BUG CON</h4>
+          <p>Bioinsecticida orgánico contra todo tipo de insectos plaga, con principio activo en conidias de hongos entomopatógenos reactivados: B. bassiana, C. fumosorosea, P. lilacinum y M. anisopliae; formulación emulsionable orgánica.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/insect_6.jpg" alt="Bio Ground"></div>
+        <div>
+          <h4>BIO GROUND CON</h4>
+          <p>Bioinsecticida orgánico que combina la acción de los hongos entomopatógenos reactivados Metarhizium anisopliae y Beauveria bassiana, para el control efectivo de una amplia gama de insectos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat especiales" id="especiales">
+  <div class="container">
+    <div class="cat-header">
+      <div class="cat-bar" style="background:var(--green-dark);"></div>
+      <h2>Especiales</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="icon"><img src="b/especial_1.jpg" alt="Power Grow"></div>
+        <div>
+          <h4>POWER GROW ufc</h4>
+          <p>Bioestimulante agrícola potenciador del crecimiento y la salud de diversos cultivos. Contiene un consorcio de cuatro rizobacterias PGP: Bacillus amyloliquefaciens, Pseudomonas fluorescens y Azospirillum brasilense. Mejora la fertilidad del suelo, promueve el desarrollo radicular, fija nitrógeno atmosférico y solubiliza fósforo.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/especial_2.jpg" alt="Bio Root"></div>
+        <div>
+          <h4>BIO ROOT ufc</h4>
+          <p>Bioenraizante, bioestimulante y biofertilizante formulado a partir de endosporas de Bacillus subtilis, Bacillus licheniformis, Bacillus pumilus y Bacillus megaterium. Devuelve vitalidad al suelo, aumenta la descomposición de materia orgánica, produce enzimas y fitohormonas, solubiliza fósforo y compite contra fitopatógenos.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icon"><img src="b/especial_4.jpg" alt="Bio Sil 80%"></div>
+        <div>
+          <h4>BIO SIL 80%</h4>
+          <p>Fertilizante micronutriente de origen natural, a base de arcilla natural rica en dióxido de silicio (SiO2). Su estructura microgranulada contribuye a disminuir la población de insectos plaga de cuerpo blando, mejora la fertilidad del suelo, la aireación y la retención hídrica, y refuerza la resistencia natural de los cultivos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="footer-top">
+    <h2>Munay Te & J SAC</h2>
+    <div class="contact-info">
+      <span>📞 987 526 118 / 9943 124 506</span>
+      <span>📍 Av. Tupac Amaru N° 299 – Huacho</span>
+      <span>✉️ munaygrup@gmail.com</span>
+    </div>
+  </div>
+  <div class="footer-fruit"><img src="a/strip_bot.jpg" alt="Cultivos Muñay"></div>
+
+</footer>
+
+<button class="fab-contact" id="fabContacto">💬 Contáctanos</button>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h2>Escríbenos</h2>
+        <p>Te respondemos por WhatsApp</p>
+      </div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="contact-badges">
+              <span>📞 987 526 118 / 9943 124 506</span>
+              <span>✉️ munaygrup@gmail.com</span>
+              <span>📍 Av. Tupac Amaru N° 299 – Huacho</span>
+      </div>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Nombre</label>
+            <input type="text" id="fname" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Teléfono</label>
+            <input type="tel" id="fphone" placeholder="Tu número">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fcultivo">Producto de interés</label>
+          <select id="fcultivo">
+            <option>Fungicidas</option>
+            <option>Insecticidas</option>
+            <option>Especiales</option>
+            <option>Otro / Asesoría general</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fmsg">Mensaje</label>
+          <textarea id="fmsg" placeholder="Cuéntanos qué necesitas..."></textarea>
+        </div>
+        <button type="submit" class="btn-send">📲 Enviar por WhatsApp</button>
+        <p class="form-note">Se abrirá WhatsApp con tu mensaje listo para enviar al 952 576 705.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click',function(){
+    document.getElementById('navList').classList.toggle('open');
+  });
+  document.querySelectorAll('nav a:not(.nav-cta)').forEach(a=>a.addEventListener('click',()=>{
+    document.getElementById('navList').classList.remove('open');
+  }));
+
+  const overlay = document.getElementById('modalOverlay');
+  function openModal(){ overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeModal(){ overlay.classList.remove('open'); document.body.style.overflow=''; }
+  document.getElementById('fabContacto').addEventListener('click', openModal);
+  document.getElementById('navContacto').addEventListener('click', openModal);
+  document.getElementById('heroContacto').addEventListener('click', openModal);
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', e=>{ if(e.target === overlay) closeModal(); });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nombre = document.getElementById('fname').value || 'Sin nombre';
+    const telefono = document.getElementById('fphone').value || 'No indicado';
+    const cultivo = document.getElementById('fcultivo').value;
+    const mensaje = document.getElementById('fmsg').value || 'Quisiera más información.';
+    const texto = `Hola Muñay Te y J SAC, mi nombre es ${nombre} (tel: ${telefono}).%0AEstoy interesado en: ${cultivo}.%0A${mensaje}`;
+    window.open(`https://wa.me/51987526118?text=${texto}`, '_blank');
+    closeModal();
+  });
+</script>
+
+</body>
+</html>
